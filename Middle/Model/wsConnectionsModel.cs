@@ -8,6 +8,9 @@ namespace Middle.Model
 
     public class wsConnectionsModel
     {
+        /// <summary>
+        /// Dictionary for better use of rules in connections.
+        /// </summary>
         public Dictionary<WebSocket, AppOrigin> DcWsConnections { get; set; }
 
         public void initializeDictionary()
@@ -19,17 +22,12 @@ namespace Middle.Model
         }
 
         /// <summary>
-        /// ws = new WebSocket created
-        /// appOrigin = enum to determine connection origin system.
+        /// Add new value to dictionary
         /// </summary>
         /// <param name="ws"></param>
         /// <param name="appOrigin"></param>
         public void AddToDcConnections(WebSocket ws, AppOrigin appOrigin)
         {
-            //For each add to Dictionary, i validate and remove all of closed connections of ws.
-            //DcWsConnections.Remove((WebSocket)DcWsConnections.Keys.Where(x => x.State == WebSocketState.Closed));
-            
-            //After i add a new.
             DcWsConnections.Add(ws , appOrigin);
         }
     }
